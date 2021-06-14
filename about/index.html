@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://example.com/about/">
+        <link rel="canonical" href="https://landfill.cc/wiki/about/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>About - wiki</title>
+        <title>About - wiki of CS</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -17,13 +17,14 @@
         <script src="../js/jquery-1.10.2.min.js" defer></script>
         <script src="../js/bootstrap.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <div class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="..">wiki</a>
+                <a class="navbar-brand" href="..">wiki of CS</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -34,13 +35,23 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Welcome to MkDocs</a>
+                                <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem active">
                                 <a href="./" class="nav-link">About</a>
                             </li>
-                            <li class="navitem">
-                                <a href="../%E7%A7%9F%E6%88%BF%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="nav-link">租房注意事项</a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Documents <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../test/usage/" class="dropdown-item">Usage</a>
+</li>
+                                    
+<li>
+    <a href="../test/tutorial/" class="dropdown-item">Tutorial</a>
+</li>
+                                </ul>
                             </li>
                         </ul>
 
@@ -56,7 +67,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../%E7%A7%9F%E6%88%BF%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="nav-link">
+                                <a rel="next" href="../test/usage/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -88,6 +99,7 @@
 
         <footer class="col-md-12">
             <hr>
+                <p>Copyright © 2020 [Landfill](https://www.landfill.cc/)</p>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
         <script>
