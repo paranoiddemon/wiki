@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://landfill.cc/wiki/test/</loc>
+         <lastmod>2021-06-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://landfill.cc/wiki/DataStructure/about/</loc>
          <lastmod>2021-06-14</lastmod>
          <changefreq>daily</changefreq>
