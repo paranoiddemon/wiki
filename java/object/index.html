@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://landfill.cc/wiki/java/equals%2Chashcode/">
+        <link rel="canonical" href="https://landfill.cc/wiki/java/object/">
       
       <link rel="icon" href="../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
-        <title>Object/equals/hashCode - Landfill's Notebook</title>
+        <title>Class Object - Landfill's Notebook</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#objecthashcode-equals" class="md-skip">
+        <a href="#class-object" class="md-skip">
           跳转至
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Object/equals/hashCode
+              Class Object
             
           </span>
         </div>
@@ -508,12 +508,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Object/equals/hashCode
+          Class Object
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Object/equals/hashCode
+        Class Object
       </a>
       
         
@@ -547,6 +547,20 @@
         <li class="md-nav__item">
   <a href="#3-hashcode" class="md-nav__link">
     3. hashCode()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tostring" class="md-nav__link">
+    4. toString()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-lombok" class="md-nav__link">
+    5. Lombok
   </a>
   
 </li>
@@ -611,6 +625,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4-tostring" class="md-nav__link">
+    4. toString()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-lombok" class="md-nav__link">
+    5. Lombok
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -624,7 +652,7 @@
               
                 
                 
-                <h1 id="objecthashcode-equals">Object类，hashCode() ，equals()<a class="headerlink" href="#objecthashcode-equals" title="Permanent link">&para;</a></h1>
+                <h1 id="class-object">Class Object<a class="headerlink" href="#class-object" title="Permanent link">&para;</a></h1>
 <h2 id="1-object">1. Object类<a class="headerlink" href="#1-object" title="Permanent link">&para;</a></h2>
 <p>Object 类位于 java.lang 包中，编译时会自动导入，我们创建一个类时，如果没有明确继承一个父类，那么它就会自动继承 Object，成为 Object 的子类。</p>
 <p>Object 类可以显示继承，也可以隐式继承，以下两种方式时一样的：</p>
@@ -654,7 +682,7 @@
 </tr>
 <tr>
 <td align="center">3</td>
-<td><a href="https://www.runoob.com/java/java-object-finalize.html">protected void finalize()</a>当 GC (垃圾回收器)确定不存在对该对象的有更多引用时，由对象的垃圾回收器调用此方法。</td>
+<td><a href="https://www.runoob.com/java/java-object-finalize.html">protected void finalize()</a>当 GC (垃圾回收器)确定不存在对该对象的有更多引用时，由对象的垃圾回收器调用此方法。<br />protected void finalize() throws Throwable { } 空方法</td>
 </tr>
 <tr>
 <td align="center">4</td>
@@ -690,6 +718,7 @@
 </tr>
 </tbody>
 </table>
+<p>wait，notify，hashCode，notifyAll，clone，getClass都是本地方法</p>
 <h2 id="2-equals">2. equals()<a class="headerlink" href="#2-equals" title="Permanent link">&para;</a></h2>
 <p>equals() 定义在JDK的Object.java中。通过判断两个对象的地址是否相等(即，是否是同一个对象)来区分它们是否相等。源码如下：</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="p">(</span><span class="n">Object</span> <span class="n">obj</span><span class="p">)</span> <span class="p">{</span>
@@ -782,6 +811,86 @@
 <p>HashCode不同的对象一定不相等</p>
 <p>相同的对象HashCode一定相等</p>
 <p>HashCode相等，也可能是不同的对象</p>
+<h2 id="4-tostring">4. toString()<a class="headerlink" href="#4-tostring" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1">// java.lang.Object()</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">getClass</span><span class="p">().</span><span class="na">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;@&quot;</span> <span class="o">+</span> <span class="n">Integer</span><span class="p">.</span><span class="na">toHexString</span><span class="p">(</span><span class="n">hashCode</span><span class="p">());</span>
+    <span class="c1">// java.lang.Object - 类名 </span>
+    <span class="c1">// @ - 符号 </span>
+    <span class="c1">// d716361 - 哈希值的十六进制值</span>
+
+
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">RunoobTest</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// toString() with Object</span>
+        <span class="n">Object</span> <span class="n">obj1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj1</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+        <span class="n">Object</span> <span class="n">obj2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj2</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+
+        <span class="n">Object</span> <span class="n">obj3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Object</span><span class="p">();</span>
+        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">obj3</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="cm">/*</span>
+<span class="cm">java.lang.Object@d716361</span>
+<span class="cm">java.lang.Object@6ff3c5b5</span>
+<span class="cm">java.lang.Object@3764951d</span>
+<span class="cm">*/</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">// 重写toString()</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">&quot;Person{&quot;</span> <span class="o">+</span>
+            <span class="s">&quot;name=&#39;&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+            <span class="s">&quot;, age=&#39;&quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="sc">&#39;\&#39;&#39;</span> <span class="o">+</span>
+            <span class="sc">&#39;}&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// Person{name=&#39;TOM&#39;, age=&#39;12&#39;}</span>
+</code></pre></div>
+<h2 id="5-lombok">5. Lombok<a class="headerlink" href="#5-lombok" title="Permanent link">&para;</a></h2>
+<p><strong>常用的几个注解</strong>：
+@Data ： 注在类上，提供类的get、set、equals、hashCode、canEqual、toString方法
+@AllArgsConstructor ： 注在类上，提供类的全参构造
+@NoArgsConstructor ： 注在类上，提供类的无参构造  <a href="https://segmentfault.com/a/1190000021944895">[Java的构造函数与默认构造函数]</a>
+@Setter ： 注在属性上，提供 set 方法
+@Getter ： 注在属性上，提供 get 方法
+@EqualsAndHashCode ： 注在类上，提供对应的 equals 和 hashCode 方法
+@Log4j/@Slf4j ： 注在类上，提供对应的 Logger 对象，变量名为 log</p>
+<p><a href="https://projectlombok.org/features/Data"><code>@Data</code></a> is a convenient shortcut annotation that bundles the features of <a href="https://projectlombok.org/features/ToString"><code>@ToString</code></a>, <a href="https://projectlombok.org/features/EqualsAndHashCode"><code>@EqualsAndHashCode</code></a>, <a href="https://projectlombok.org/features/GetterSetter"><code>@Getter</code> / <code>@Setter</code></a> and <a href="https://projectlombok.org/features/constructor"><code>@RequiredArgsConstructor</code></a> together: In other words, <code>@Data</code> generates <em>all</em> the boilerplate that is normally associated with simple POJOs (Plain Old Java Objects) and beans: getters for all fields, setters for all non-final fields, and appropriate <code>toString</code>, <code>equals</code> and <code>hashCode</code> implementations that involve the fields of the class, and a constructor that initializes all final fields, as well as all non-final fields with no initializer that have been marked with <code>@NonNull</code>, in order to ensure the field is never null.</p>
+<p>@RequiredArgsConstructor </p>
+<p><code>@RequiredArgsConstructor</code>也是在类上使用，但是这个注解可以生成带参或者不带参的构造方法。</p>
+<p><strong>若带参数，只能是类中所有带有 <code>@NonNull</code>注解的和以<code>final</code>修饰的未经初始化的字段</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nd">@RequiredArgsConstructor</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">gender</span><span class="p">;</span>
+    <span class="nd">@NonNull</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="p">;</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 编译后：</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">gender</span><span class="p">;</span>
+    <span class="nd">@NonNull</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">username</span><span class="p">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">password</span><span class="p">;</span>
+
+    <span class="kd">public</span> <span class="nf">User</span><span class="p">(</span><span class="n">String</span> <span class="n">gender</span><span class="p">,</span> <span class="nd">@NonNull</span> <span class="n">String</span> <span class="n">username</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">username</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">NullPointerException</span><span class="p">(</span><span class="s">&quot;username is marked @NonNull but is null&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">gender</span> <span class="o">=</span> <span class="n">gender</span><span class="p">;</span>
+            <span class="k">this</span><span class="p">.</span><span class="na">username</span> <span class="o">=</span> <span class="n">username</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
                 
               
               
