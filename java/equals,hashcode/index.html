@@ -16,7 +16,7 @@
     
     
       
-        <title>Class Object,equals(),hashCode() - Landfill's Notebook</title>
+        <title>Object、equals and hashCode - Landfill's Notebook</title>
       
     
     
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Class Object,equals(),hashCode()
+              Object、equals and hashCode
             
           </span>
         </div>
@@ -508,12 +508,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Class Object,equals(),hashCode()
+          Object、equals and hashCode
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Class Object,equals(),hashCode()
+        Object、equals and hashCode
       </a>
       
         
@@ -777,7 +777,7 @@
 </code></pre></div>
 <p>HashCode的作用</p>
 <p>虽然，每个Java类都包含hashCode() 函数。但是，仅仅当创建并某个“类的散列表”（如HashMap，Hashtable，HashSet）时，该类的hashCode() 才有用(作用是：确定该类的每一个对象在散列表中的位置；其它情况下(例如，创建类的单个对象，或者创建类的对象数组等等)，类的hashCode() 没有作用。</p>
-<p>也就是说：**hashCode() 在散列表中才有用，在其它情况下没用。**在散列表中hashCode() 的作用是获取对象的散列码，进而确定该对象在散列表中的位置。</p>
+<p>也就是说：hashCode() 在散列表中才有用，在其它情况下没用。在散列表中hashCode() 的作用是获取对象的散列码，进而确定该对象在散列表中的位置。</p>
 <p>在使用HashMap等结构的时候，可能会出现Hash Collision，此时才需要equals()，平时这两个方法没有什么关系。</p>
 <p>HashCode不同的对象一定不相等</p>
 <p>相同的对象HashCode一定相等</p>
