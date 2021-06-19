@@ -461,6 +461,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dev/Introduction%20to%20SOAP%20and%20Web%20Service/" class="md-nav__link">
+        SOAP and Web Service
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -854,13 +866,13 @@
 </code></pre></div>
 <h2 id="5-lombok">5. Lombok<a class="headerlink" href="#5-lombok" title="Permanent link">&para;</a></h2>
 <p><strong>常用的几个注解</strong>：
-@Data ： 注在类上，提供类的get、set、equals、hashCode、canEqual、toString方法
-@AllArgsConstructor ： 注在类上，提供类的全参构造
-@NoArgsConstructor ： 注在类上，提供类的无参构造  <a href="https://segmentfault.com/a/1190000021944895">[Java的构造函数与默认构造函数]</a>
-@Setter ： 注在属性上，提供 set 方法
-@Getter ： 注在属性上，提供 get 方法
-@EqualsAndHashCode ： 注在类上，提供对应的 equals 和 hashCode 方法
-@Log4j/@Slf4j ： 注在类上，提供对应的 Logger 对象，变量名为 log</p>
+@Data ： 注在类上，提供类的get、set、equals、hashCode、canEqual、toString方法</p>
+<p>@AllArgsConstructor ： 注在类上，提供类的全参构造</p>
+<p>@NoArgsConstructor ： 注在类上，提供类的无参构造  <a href="https://segmentfault.com/a/1190000021944895">Java的构造函数与默认构造函数</a></p>
+<p>@Setter ： 注在属性上，提供 set 方法</p>
+<p>@Getter ： 注在属性上，提供 get 方法</p>
+<p>@EqualsAndHashCode ： 注在类上，提供对应的 equals 和 hashCode 方法</p>
+<p>@Log4j/@Slf4j ： 注在类上，提供对应的 Logger 对象，变量名为 log</p>
 <p><a href="https://projectlombok.org/features/Data"><code>@Data</code></a> is a convenient shortcut annotation that bundles the features of <a href="https://projectlombok.org/features/ToString"><code>@ToString</code></a>, <a href="https://projectlombok.org/features/EqualsAndHashCode"><code>@EqualsAndHashCode</code></a>, <a href="https://projectlombok.org/features/GetterSetter"><code>@Getter</code> / <code>@Setter</code></a> and <a href="https://projectlombok.org/features/constructor"><code>@RequiredArgsConstructor</code></a> together: In other words, <code>@Data</code> generates <em>all</em> the boilerplate that is normally associated with simple POJOs (Plain Old Java Objects) and beans: getters for all fields, setters for all non-final fields, and appropriate <code>toString</code>, <code>equals</code> and <code>hashCode</code> implementations that involve the fields of the class, and a constructor that initializes all final fields, as well as all non-final fields with no initializer that have been marked with <code>@NonNull</code>, in order to ensure the field is never null.</p>
 <p>@RequiredArgsConstructor </p>
 <p><code>@RequiredArgsConstructor</code>也是在类上使用，但是这个注解可以生成带参或者不带参的构造方法。</p>
@@ -914,7 +926,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../dev/Webkit%2CBlink%2C%20V8%2C%20Chromium/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Browser Engine" rel="prev">
+        <a href="../../dev/Introduction%20to%20SOAP%20and%20Web%20Service/" class="md-footer__link md-footer__link--prev" aria-label="上一页: SOAP and Web Service" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -923,7 +935,7 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              Browser Engine
+              SOAP and Web Service
             </div>
           </div>
         </a>
